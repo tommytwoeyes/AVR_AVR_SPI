@@ -12,7 +12,8 @@
 #include "spi_master.h"
 
 void init_SPI(void) {
-	// Enable SPI by turning off PRSPI bit in Power Reduction Register
+	// Ensure SPI will work by turning off PRSPI bit in the 
+	// Power Reduction Register
 	PRR &= ~(1 << PRSPI);
 	
 	// Config SCK and MOSI for output
@@ -23,6 +24,12 @@ void init_SPI(void) {
 	// SPI multi-master mode. Things get more complicated for SS in 
 	// that mode).
 	SPI_DDR |= (1 << SPI_SS);
+	
+	// Enable SPI module
+	SPCR |= (1 << SPE);
+	
+	// Configure MASTER mode
+	SPCR |= (1 << MSTR);
 }
 
 #endif /* _AVR_SPI_MASTER_H */
