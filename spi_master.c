@@ -1,15 +1,15 @@
 /**
- * File: spi_transmitter.c
+ * File: spi_master.c
  * Author: Tom Malone
  * 
  * Simple SPI usage between two Atmel ATmega328 microcontrollers.
  */
  
-#ifndef _AVR_SPI_XMIT_H
-#define _AVR_SPI_XMIT_H 1
+#ifndef _AVR_SPI_MASTER_H
+#define _AVR_SPI_MASTER_H 1
 
 #include <avr/io.h>
-#include "spi_transmitter.h"
+#include "spi_master.h"
 
 void init_SPI(void) {
 	// Enable SPI by turning off PRSPI bit in Power Reduction Register
@@ -25,4 +25,4 @@ void init_SPI(void) {
 	SPI_DDR |= (1 << SPI_SS);
 }
 
-#endif /* _AVR_SPI_XMIT_H */
+#endif /* _AVR_SPI_MASTER_H */
