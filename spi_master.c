@@ -30,6 +30,10 @@ void init_SPI(void) {
 	
 	// Configure MASTER mode
 	SPCR |= (1 << MSTR);
+	
+	// Set SPI Shift Clock: div 16 is suitable for breadboards with 
+	// longer connections.
+	SPCR |= (1 << SPR0); 
 }
 
 #endif /* _AVR_SPI_MASTER_H */
