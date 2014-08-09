@@ -25,6 +25,11 @@ void init_SPI(void) {
 	// that mode).
 	SPI_DDR |= (1 << SPI_SS);
 	
+	// The Slave Select pin is active low, so initially, it should be set 
+	// high. This ensures that the SPI interface isn't unintentionally 
+	// activated prematurely.
+	SPI_PORT |= (1 << SPI_SS); 
+	
 	// Enable SPI module
 	SPCR |= (1 << SPE);
 	
