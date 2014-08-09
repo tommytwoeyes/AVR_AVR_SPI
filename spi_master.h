@@ -5,6 +5,6 @@
  * Simple SPI usage between two Atmel ATmega328 microcontrollers.
  */
 
-#include "pin_definitions.h"
+#include "spi_mnemonics.h"
 
 void init_SPI(void);
